@@ -1,0 +1,21 @@
+server:
+  port: 8001
+eureka:
+  instance:
+    instance-id: product
+    lease-renewal-interval-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+spring:
+  application:
+    name: product
+  rabbitmq:
+    host: 192.168.244.37
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    publisher-confirm-type: correlated
+    publisher-returns: true

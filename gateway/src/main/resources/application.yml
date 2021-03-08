@@ -1,0 +1,19 @@
+server:
+  port: 8004
+eureka:
+  instance:
+    instance-id: gateway
+    lease-renewal-interval-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: ctm
+          uri: lb://CUSTOMER1
+          predicates:
+            - Path=/customer/{segment}
